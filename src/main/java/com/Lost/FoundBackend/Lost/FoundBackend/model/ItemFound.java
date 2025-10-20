@@ -1,6 +1,8 @@
 package com.Lost.FoundBackend.Lost.FoundBackend.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,7 +20,7 @@ public class ItemFound {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     @Column (name = "name")
     private String name;
     @Column (name = "description")
@@ -47,11 +49,11 @@ public class ItemFound {
 
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

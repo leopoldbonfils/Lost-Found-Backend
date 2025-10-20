@@ -1,6 +1,8 @@
 package com.Lost.FoundBackend.Lost.FoundBackend.model;
 
 import java.util.List;
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,7 +21,7 @@ public class Location {
      
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     @Column(name = "province")
     private String province;
     @Column(name = "district")
@@ -46,12 +48,12 @@ public class Location {
     }
 
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -135,6 +137,8 @@ public class Location {
         this.foundItems = foundItems;
     }
 
+
+    
     
 
 }
