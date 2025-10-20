@@ -1,62 +1,130 @@
 package com.Lost.FoundBackend.Lost.FoundBackend.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "fullName")
-    private String fullName;
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "phoneNumber")
     private String phoneNumber;
+
     @ManyToOne
     @JoinColumn(name = "location_id")
     private Location location;
 
-    public User() {}
-    public User(String fullName, String email, String phoneNumber, Location location) {
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.location = location;
+    @OneToMany(mappedBy = "user")
+    private List<LostItem> lostItems;
+
+    @OneToMany(mappedBy = "foundBy")
+    private List<ItemFound> foundItems;
+    
+
+    public User() {
     }
+
+
     public Long getId() {
         return id;
     }
+
+
     public void setId(Long id) {
         this.id = id;
     }
-    public String getFullName() {
-        return fullName;
+
+
+    public String getFirstName() {
+        return firstName;
     }
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+
+    public String getLastName() {
+        return lastName;
+    }
+
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
     public String getEmail() {
         return email;
     }
+
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
     public Location getLocation() {
         return location;
     }
+
+
     public void setLocation(Location location) {
         this.location = location;
     }
 
+
+    public List<LostItem> getLostItems() {
+        return lostItems;
+    }
+
+
+    public void setLostItems(List<LostItem> lostItems) {
+        this.lostItems = lostItems;
+    }
+
+
+    public List<ItemFound> getFoundItems() {
+        return foundItems;
+    }
+
+
+    public void setFoundItems(List<ItemFound> foundItems) {
+        this.foundItems = foundItems;
+    }
+
     
-    
+
+
 }
