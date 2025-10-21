@@ -47,6 +47,15 @@ public class UserService {
         return userRepository.findByLastNameContainingIgnoreCase(lastName);
     }
 
+    public Optional<User> getUserByEmail(String email) {
+    return userRepository.findByEmail(email);
+}
+
+    public Optional<User> getUserByPhoneNumber(String phoneNumber) {
+        return userRepository.findByPhoneNumber(phoneNumber);
+    }
+    
+
     // Update user
     public String updateUser(User user){
         if(userRepository.existsById(user.getId())){
