@@ -1,35 +1,36 @@
 package com.Lost.FoundBackend.Lost.FoundBackend.repository;
+
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.Lost.FoundBackend.Lost.FoundBackend.model.LostItem;
+import com.Lost.FoundBackend.Lost.FoundBackend.model.ItemFound;
 
 @Repository
-public interface ItemFoundRepository extends JpaRepository<LostItem, UUID>  {
+public interface ItemFoundRepository extends JpaRepository<ItemFound, UUID>  {
 
-    
-    List<LostItem> findByNameContainingIgnoreCase(String name);
+    List<ItemFound> findByNameContainingIgnoreCase(String name);
 
-    List<LostItem> findByColorIgnoreCase(String color);
+    List<ItemFound> findByColorIgnoreCase(String color);
 
-    List<LostItem> findByDateLost(LocalDate dateLost);
+    List<ItemFound> findByDateFound(LocalDate dateFound);
 
-    List<LostItem> findByCategory_Name(String categoryName);
+    List<ItemFound> findByCategory_Name(String categoryName);
 
-    List<LostItem> findByUser_Id(UUID userId);
+    List<ItemFound> findByFoundBy_Id(UUID userId);
 
-    List<LostItem> findByLocation_Province(String province);
-    List<LostItem> findByLocation_District(String district);
-    List<LostItem> findByLocation_Sector(String sector);
+    List<ItemFound> findByLocation_Province(String province);
 
-    Boolean existsByNameAndUser_Id(String name, UUID userId);
+    List<ItemFound> findByLocation_District(String district);
 
-    Page<LostItem> findAll(Pageable pageable);
-    
+    List<ItemFound> findByLocation_Sector(String sector);
+
+    Boolean existsByNameAndFoundBy_Id(String name, UUID userId);
+
+    Page<ItemFound> findAll(Pageable pageable);
 }
