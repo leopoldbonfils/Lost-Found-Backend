@@ -20,7 +20,7 @@ import jakarta.persistence.OneToMany;
 public class Location {
      
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(name = "province")
     private String province;

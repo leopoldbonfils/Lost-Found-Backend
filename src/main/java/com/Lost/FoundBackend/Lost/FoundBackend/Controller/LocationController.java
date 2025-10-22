@@ -22,7 +22,7 @@ import com.Lost.FoundBackend.Lost.FoundBackend.service.LocationService;
 
 @RestController
 @RequestMapping(value = "/api/location")
-public class LocationRepository {
+public class LocationController {
 
     @Autowired
     private LocationService locationService;

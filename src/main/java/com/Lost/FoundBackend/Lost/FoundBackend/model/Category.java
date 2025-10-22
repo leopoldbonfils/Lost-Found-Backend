@@ -19,7 +19,7 @@ import java.util.UUID;
 @Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(name = "name")
     private String name;
@@ -29,11 +29,11 @@ public class Category {
     private String CategoryType;
 
     
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private List<LostItem> lostItems;
 
    
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private List<ItemFound> foundItems;
 
     public Category() {
