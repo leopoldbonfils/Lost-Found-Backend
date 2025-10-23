@@ -24,9 +24,11 @@ public interface LocationRepository extends JpaRepository<Location, UUID> {
 
     List<Location> findByVillage(String village);
 
-    Boolean existsByProvinceAndDistrictAndSectorAndCellAndVillage( String province, String district, String sector, String cell, String village );
+    Boolean existsByProvinceAndDistrictAndSectorAndCellAndVillage(
+    String province, String district, String sector, String cell, String village
+);
 
-    Optional<Location> findByProvinceAndDistrict(String province, String district);
+    List<Location> findByProvinceAndDistrict(String province, String district);
 
     Page<Location> findAll(Pageable pageable);
     
