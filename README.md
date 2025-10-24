@@ -22,14 +22,23 @@ Built with **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**.
 Lost-FoundBackend/
 
 ├── src/main/java/com/Lost/FoundBackend/Lost/FoundBackend/
+
 │ ├── controller/ # REST Controllers
+
 │ ├── model/ # JPA Entities
+
 │ ├── repository/ # JPA Repositories
+
 │ ├── service/ # Business Logic Layer
+
 │ └── LostFoundBackendApplication.java # Main Spring Boot App
+
 ├── src/main/resources/
+
 │ ├── application.properties
+
 │ └── static/ | templates/
+
 └── pom.xml
 
 
@@ -70,3 +79,10 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 server.port=8080
+```
+▶️ How to Run the Project
+
+1️⃣ Clone the Repository
+
+    git clone https://github.com/yourusername/Lost-FoundBackend.git
+    cd Lost-FoundBackend
