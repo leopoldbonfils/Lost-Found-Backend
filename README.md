@@ -105,12 +105,21 @@ Open your browser and go to:
 
 🧪 Example Endpoints (REST API)
 Method	Endpoint	Description
+
 POST	/api/users	Register new user
+
 GET	/api/users	List all users
+
 POST	/api/items	Report lost/found item
+
 GET	/api/items/{id}	Get item by ID
+
 PUT	/api/items/{id}	Update item details
+
 DELETE	/api/items/{id}	Delete item
+
 GET	/api/locations	List all locations
+
+
 
 
