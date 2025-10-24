@@ -84,5 +84,13 @@ server.port=8080
 
 1️⃣ Clone the Repository
 
-    git clone https://github.com/yourusername/Lost-FoundBackend.git
-    cd Lost-FoundBackend
+    git clone https://github.com/leopoldbonfils/Lost-Found-Backend.git
+    cd Lost-Found-Backend
+
+2️⃣ Configure PostgreSQL
+
+   Create a database named lost_found_db
+
+   Update application.properties with your DB credentials
+
+3️⃣ Run the Application
