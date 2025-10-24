@@ -104,22 +104,41 @@ Open your browser and go to:
     http://localhost:8080
 
 🧪 Example Endpoints (REST API)
-Method	Endpoint	Description
+Method	Endpoint	  Description
 
-POST	/api/users	Register new user
+POST	/api/users	  Register new user
 
-GET	/api/users	List all users
+GET	    /api/users	  List all users
 
-POST	/api/items	Report lost/found item
+POST	/api/items	  Report lost/found item
 
-GET	/api/items/{id}	Get item by ID
+GET	  /api/items/{id}	Get item by ID
 
-PUT	/api/items/{id}	Update item details
+PUT	 /api/items/{id}	Update item details
 
-DELETE	/api/items/{id}	Delete item
+DELETE	/api/items/{id}	 Delete item
 
-GET	/api/locations	List all locations
+GET	  /api/locations	List all locations
 
 
+🧰 Future Enhancements
 
+📱 Add React frontend
+
+🔍 Implement advanced search & filters
+
+📩 Add email/SMS notifications for found items
+
+🗺️ Integrate Google Maps API for location tagging
+
+👨‍💻 Author
+
+Leopold Mugisha
+📍 Rwanda
+💼 Software Engineering Student
+📧 leopordbonfils@gmail.com
+
+📜 License
+
+This project is licensed under the MIT License — feel free to use and modify it.
 
