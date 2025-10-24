@@ -52,7 +52,7 @@ Lost-FoundBackend/
 | **Item** | Represents a lost or found item | Many-to-One with User, Many-to-One with Location |
 | **Category** | Defines item categories (e.g., Electronics, Documents) | One-to-Many with Item |
 | **Location** | Represents where an item was found or lost | One-to-Many with Item |
-| **Report** | Links found/lost details and status updates | Many-to-One with Item |
+
 
 ---
 
