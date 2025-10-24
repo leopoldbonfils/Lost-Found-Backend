@@ -5,18 +5,14 @@ import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "location")
+@Table(name = "locations")
 public class Location {
      
     @Id
@@ -36,10 +32,10 @@ public class Location {
     @OneToMany(mappedBy = "location")
     private List<User> users;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "locationLost")
     private List<LostItem> lostItems;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "locationFound")
     private List<ItemFound> foundItems;
 
 
@@ -139,6 +135,4 @@ public class Location {
 
 
     
-    
-
 }

@@ -5,50 +5,57 @@ import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "foundItems")
+@Table(name = "found_items")
 public class ItemFound {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column (name = "name")
+    
+    @Column(name = "name")
     private String name;
-    @Column (name = "description")
+    
+    @Column(name = "description")
     private String description;
-    @Column (name = "dateFound")
+    
+    @Column(name = "date_found")
     private LocalDate dateFound;
-    @Column (name = "color")
-    private String color;
     
+    @Column(name = "category")
+    private String category;
     
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-
+    @Column(name = "status")
+    private String status;  // FOUND, RETURNED, UNCLAIMED
     
     @ManyToOne
     @JoinColumn(name = "found_by")
     private User foundBy;
 
-    
     @ManyToOne
-    @JoinColumn(name = "location_id")
-    private Location location;
+    @JoinColumn(name = "location_found_id")
+    private Location locationFound;
+
+    @OneToOne
+    @JoinColumn(name = "lost_item_id")
+    private LostItem lostItem;
+
+    @ManyToOne
+    @JoinColumn(name = "item_category_id") 
+    private ItemCategory itemCategory;
 
     public ItemFound() {
-
     }
 
+   
     public UUID getId() {
         return id;
     }
@@ -81,20 +88,20 @@ public class ItemFound {
         this.dateFound = dateFound;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public User getFoundBy() {
@@ -105,13 +112,27 @@ public class ItemFound {
         this.foundBy = foundBy;
     }
 
-    public Location getLocation() {
-        return location;
+    public Location getLocationFound() {
+        return locationFound;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocationFound(Location locationFound) {
+        this.locationFound = locationFound;
     }
 
-    
+    public LostItem getLostItem() {
+        return lostItem;
+    }
+
+    public void setLostItem(LostItem lostItem) {
+        this.lostItem = lostItem;
+    }
+
+    public ItemCategory getItemCategory() {
+        return itemCategory;
+    }
+
+    public void setItemCategory(ItemCategory itemCategory) {
+        this.itemCategory = itemCategory;
+    }
 }

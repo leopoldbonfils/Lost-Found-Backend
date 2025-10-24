@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
-import com.Lost.FoundBackend.Lost.FoundBackend.model.Category;
+import com.Lost.FoundBackend.Lost.FoundBackend.model.ItemCategory;
 
 import com.Lost.FoundBackend.Lost.FoundBackend.service.CategoryService;
 
@@ -28,21 +28,21 @@ public class CategoryController {
 
     // ✅ Create new category
     @PostMapping("/save")
-    public ResponseEntity<String> saveCategory(@RequestBody Category category) {
+    public ResponseEntity<String> saveCategory(@RequestBody ItemCategory category) {
         String message = categoryService.saveCategory(category);
         return ResponseEntity.ok(message);
     }
 
     // ✅ Get all categories
     @GetMapping("/all")
-    public ResponseEntity<List<Category>> getAllCategories() {
+    public ResponseEntity<List<ItemCategory>> getAllCategories() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
     // ✅ Get category by ID
     @GetMapping("/{id}")
     public ResponseEntity<?> getCategoryById(@PathVariable UUID id) {
-        Optional<Category> category = categoryService.getCategoryById(id);
+        Optional<ItemCategory> category = categoryService.getCategoryById(id);
         if (category.isPresent()) {
             return ResponseEntity.ok(category.get());
         } else {
@@ -52,13 +52,13 @@ public class CategoryController {
 
     // ✅ Search category by name
     @GetMapping("/search")
-    public ResponseEntity<List<Category>> searchByName(@RequestParam String name) {
+    public ResponseEntity<List<ItemCategory>> searchByName(@RequestParam String name) {
         return ResponseEntity.ok(categoryService.searchByName(name));
     }
 
     // ✅ Update category
     @PutMapping("/update")
-    public ResponseEntity<String> updateCategory(@RequestBody Category category) {
+    public ResponseEntity<String> updateCategory(@RequestBody ItemCategory category) {
         String message = categoryService.updateCategory(category);
         return ResponseEntity.ok(message);
     }

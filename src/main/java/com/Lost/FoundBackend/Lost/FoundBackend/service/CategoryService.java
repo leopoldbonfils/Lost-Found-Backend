@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-import com.Lost.FoundBackend.Lost.FoundBackend.model.Category;
+import com.Lost.FoundBackend.Lost.FoundBackend.model.ItemCategory;
 
 import com.Lost.FoundBackend.Lost.FoundBackend.repository.CategoryRepository;
 
@@ -17,7 +17,7 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     // Save category
-    public String saveCategory(Category category){
+    public String saveCategory(ItemCategory category){
         if(categoryRepository.existsByName(category.getName())){
             return "Category already exists";
         } else {
@@ -27,22 +27,22 @@ public class CategoryService {
     }
 
     // Get all categories
-    public List<Category> getAllCategories(){
+    public List<ItemCategory> getAllCategories(){
         return categoryRepository.findAll();
     }
 
     // Get category by ID
-    public Optional<Category> getCategoryById(UUID id){
+    public Optional<ItemCategory> getCategoryById(UUID id){
         return categoryRepository.findById(id);
     }
 
     // Search categories by name
-    public List<Category> searchByName(String name){
+    public List<ItemCategory> searchByName(String name){
         return categoryRepository.findByNameContainingIgnoreCase(name);
     }
 
     // Update category
-    public String updateCategory(Category category){
+    public String updateCategory(ItemCategory category){
         if(categoryRepository.existsById(category.getId())){
             categoryRepository.save(category);
             return "Category updated successfully";

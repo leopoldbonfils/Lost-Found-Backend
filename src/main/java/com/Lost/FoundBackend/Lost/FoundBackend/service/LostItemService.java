@@ -17,10 +17,14 @@ public class LostItemService {
     private LostItemRepository lostItemRepository;
 
     // Save lost item
-    public String saveLostItem(LostItem lostItem){
-        if(lostItemRepository.existsByNameAndUser_Id(lostItem.getName(), lostItem.getUser().getId())){
+    public String saveLostItem(LostItem lostItem) {
+        if (lostItemRepository.existsByNameAndReportedBy(lostItem.getName(), lostItem.getReportedBy())) {
             return "Lost item already exists for this user";
         } else {
+            // Set default status if not provided
+            if (lostItem.getStatus() == null || lostItem.getStatus().isEmpty()) {
+                lostItem.setStatus("LOST");
+            }
             lostItemRepository.save(lostItem);
             return "Lost item saved successfully";
         }

@@ -5,15 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "item_categories")
+public class ItemCategory {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,65 +25,56 @@ public class Category {
     private String name;
     
     @Column(name = "description")
-    private String description;
+    private String description; 
     
-    @Column(name = "category_type")  
-    private String categoryType;  
+    @ManyToMany(mappedBy = "categories")
+    private Set<LostItem> lostItems;
     
-    @OneToMany(mappedBy = "category")
-    private List<LostItem> lostItems;
-    
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "itemCategory") // Changed to match ItemFound field name
     private List<ItemFound> foundItems;
     
-    public Category() {
+    public ItemCategory() {
     }
-    
+
     public UUID getId() {
         return id;
     }
-    
+
     public void setId(UUID id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    public String getCategoryType() {
-        return categoryType;  
-    }
-    
-    public void setCategoryType(String categoryType) {
-        this.categoryType = categoryType;  
-    }
-    
-    public List<LostItem> getLostItems() {
+
+    public Set<LostItem> getLostItems() {
         return lostItems;
     }
-    
-    public void setLostItems(List<LostItem> lostItems) {
+
+    public void setLostItems(Set<LostItem> lostItems) {
         this.lostItems = lostItems;
     }
-    
+
     public List<ItemFound> getFoundItems() {
         return foundItems;
     }
-    
+
     public void setFoundItems(List<ItemFound> foundItems) {
         this.foundItems = foundItems;
     }
+
+    
 }

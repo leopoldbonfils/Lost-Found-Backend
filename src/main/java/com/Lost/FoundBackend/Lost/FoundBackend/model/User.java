@@ -5,8 +5,6 @@ import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,7 +14,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -26,7 +24,7 @@ public class User {
     private String firstName;
     @Column(name = "lastName")
     private String lastName;
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
     @Column(name = "phoneNumber")
     private String phoneNumber;
@@ -35,8 +33,8 @@ public class User {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @OneToMany(mappedBy = "user")
-    private List<LostItem> lostItems;
+    @OneToMany(mappedBy = "reportedBy")
+    private List<LostItem> reportedItems;
 
     @OneToMany(mappedBy = "foundBy")
     private List<ItemFound> foundItems;
@@ -106,13 +104,13 @@ public class User {
     }
 
 
-    public List<LostItem> getLostItems() {
-        return lostItems;
+    public List<LostItem> getReportedItems() {
+        return reportedItems;
     }
 
 
-    public void setLostItems(List<LostItem> lostItems) {
-        this.lostItems = lostItems;
+    public void setReportedItems(List<LostItem> reportedItems) {
+        this.reportedItems = reportedItems;
     }
 
 
@@ -125,8 +123,6 @@ public class User {
         this.foundItems = foundItems;
     }
 
-
     
-
-
+    
 }
