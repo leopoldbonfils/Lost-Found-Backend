@@ -94,3 +94,23 @@ server.port=8080
    Update application.properties with your DB credentials
 
 3️⃣ Run the Application
+
+    mvn spring-boot:run
+
+4️⃣ Access the App
+
+Open your browser and go to:
+
+    http://localhost:8080
+
+🧪 Example Endpoints (REST API)
+Method	Endpoint	Description
+POST	/api/users	Register new user
+GET	/api/users	List all users
+POST	/api/items	Report lost/found item
+GET	/api/items/{id}	Get item by ID
+PUT	/api/items/{id}	Update item details
+DELETE	/api/items/{id}	Delete item
+GET	/api/locations	List all locations
+
+
