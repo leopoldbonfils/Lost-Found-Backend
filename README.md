@@ -22,11 +22,8 @@ Built with **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**.
 Lost-FoundBackend/
 
 ├── src/main/java/com/Lost/FoundBackend/Lost/FoundBackend/
-
 │ ├── controller/ # REST Controllers
-
 │ ├── model/ # JPA Entities
-
 │ ├── repository/ # JPA Repositories
 │ ├── service/ # Business Logic Layer
 │ └── LostFoundBackendApplication.java # Main Spring Boot App
