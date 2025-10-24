@@ -48,10 +48,10 @@ Lost-FoundBackend/
 
 | Entity | Description | Relationship |
 |--------|--------------|---------------|
-| **User** | Stores user information (name, email, phone, etc.) | One-to-Many with Item |
-| **Item** | Represents a lost or found item | Many-to-One with User, Many-to-One with Location |
-| **Category** | Defines item categories (e.g., Electronics, Documents) | One-to-Many with Item |
-| **Location** | Represents where an item was found or lost | One-to-Many with Item |
+| **User** | Stores user information (name, email, phone, etc.) | ManyTOone with Location and OneToMany with Item |
+| **Item** | Represents a lost or found item | ManyToMany with ItemCategories, ManyToOne with Location and User, OneToOne with LostItem,  |
+| **Category** | Defines item categories (e.g., Electronics, Documents) | OneToMany with ItemCategories |
+| **Location** | Represents where an item was found or lost | OneToMany with Item |
 
 
 ---
