@@ -134,8 +134,11 @@ GET	  /api/locations	List all locations
 👨‍💻 Author
 
 Leopold Mugisha
+
 📍 Rwanda
+
 💼 Software Engineering Student
+
 📧 leopordbonfils@gmail.com
 
 📜 License
