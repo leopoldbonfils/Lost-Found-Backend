@@ -31,3 +31,41 @@ Lost-FoundBackend/
 │ └── static/ | templates/
 └── pom.xml
 
+
+---
+
+## 🧩 Entities Overview
+
+| Entity | Description | Relationship |
+|--------|--------------|---------------|
+| **User** | Stores user information (name, email, phone, etc.) | One-to-Many with Item |
+| **Item** | Represents a lost or found item | Many-to-One with User, Many-to-One with Location |
+| **Category** | Defines item categories (e.g., Electronics, Documents) | One-to-Many with Item |
+| **Location** | Represents where an item was found or lost | One-to-Many with Item |
+| **Report** | Links found/lost details and status updates | Many-to-One with Item |
+
+---
+
+## ⚙️ Tech Stack
+
+- **Backend:** Spring Boot 3.5.x  
+- **Database:** PostgreSQL  
+- **ORM:** Spring Data JPA / Hibernate  
+- **Build Tool:** Maven  
+- **Language:** Java 21  
+- **Testing:** JUnit & Spring Boot Test  
+
+---
+
+## 💾 Database Configuration
+
+In your `src/main/resources/application.properties`:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/lost_found_db
+spring.datasource.username=postgres
+spring.datasource.password=5Rwandan
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+server.port=8080
