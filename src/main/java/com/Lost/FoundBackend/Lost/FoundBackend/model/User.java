@@ -9,9 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 @Table(name = "users")
@@ -29,7 +29,8 @@ public class User {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    @ManyToOne
+    
+    @OneToOne
     @JoinColumn(name = "location_id")
     private Location location;
 
@@ -123,6 +124,4 @@ public class User {
         this.foundItems = foundItems;
     }
 
-    
-    
 }

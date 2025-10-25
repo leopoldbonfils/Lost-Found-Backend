@@ -30,7 +30,7 @@ public class ItemCategory {
     @ManyToMany(mappedBy = "categories")
     private Set<LostItem> lostItems;
     
-    @OneToMany(mappedBy = "itemCategory") // Changed to match ItemFound field name
+    @OneToMany(mappedBy = "itemCategory")
     private List<ItemFound> foundItems;
     
     public ItemCategory() {
@@ -76,5 +76,5 @@ public class ItemCategory {
         this.foundItems = foundItems;
     }
 
-    
+
 }

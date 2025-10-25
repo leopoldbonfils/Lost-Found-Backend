@@ -37,11 +37,11 @@ public class ItemFound {
     private String status;  // FOUND, RETURNED, UNCLAIMED
     
     @ManyToOne
-    @JoinColumn(name = "found_by")
+    @JoinColumn(name = "foundBy_id")
     private User foundBy;
 
     @ManyToOne
-    @JoinColumn(name = "location_found_id")
+    @JoinColumn(name = "locationFound_id")
     private Location locationFound;
 
     @OneToOne

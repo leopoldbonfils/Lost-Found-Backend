@@ -1,7 +1,6 @@
 package com.Lost.FoundBackend.Lost.FoundBackend.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -37,12 +36,12 @@ public class LostItem {
     
     
     @ManyToOne
-    @JoinColumn(name = "reported_by")
+    @JoinColumn(name = "reportedBy_id")
     private User reportedBy;
 
     
     @ManyToOne
-    @JoinColumn(name = "location_lost_id")
+    @JoinColumn(name = "locationLost_id")
     private Location locationLost;
 
     @OneToOne(mappedBy = "lostItem")

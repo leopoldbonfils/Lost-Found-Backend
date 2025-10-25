@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 @Table(name = "locations")
@@ -29,9 +30,7 @@ public class Location {
     @Column(name = "village")
     private String village;
 
-    @OneToMany(mappedBy = "location")
-    private List<User> users;
-
+    
     @OneToMany(mappedBy = "locationLost")
     private List<LostItem> lostItems;
 
@@ -104,14 +103,7 @@ public class Location {
     }
 
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+    
 
 
     public List<LostItem> getLostItems() {
@@ -133,6 +125,4 @@ public class Location {
         this.foundItems = foundItems;
     }
 
-
-    
 }
